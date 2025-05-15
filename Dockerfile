@@ -20,4 +20,4 @@ ENV FLASK_RUN_PORT=8000
 EXPOSE 8000
 
 # Run the Flask app
-CMD ["flask", "run"]
+CMD ["python", "app.py"]
