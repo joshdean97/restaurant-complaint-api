@@ -5,18 +5,14 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy requirements and install them
-COPY ./requirements.txt .
+COPY api/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your code
-COPY core/ .
+# Copy app.py and core module
+COPY api/app.py .
+COPY api/core ./core
 
-# Set environment variables
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=8000
-
-# Expose the port Flask runs on
+# Expose Flask port
 EXPOSE 8000
 
 # Run the Flask app
